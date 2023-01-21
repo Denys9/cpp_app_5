@@ -1,58 +1,24 @@
-#include <stdio.h> 
-#include <locale.h> 
-#include <Windows.h> 
-#define MONTH 12 
+#include <iostream>
+#include <time.h>
+using namespace std;
 int main()
 {
-	setlocale(LC_ALL, "rus");
-	float mass[MONTH];
-	float max;
-	float min;
-	int firstNumberRange = 0;
-	int secondNumberRange = 0;
+    int temp, num, i, j;
+    const uint32_t size = 5;
+    int arr[size];
+    /* cout << "Enter each month income:" << endl;*/
+    for (size_t i = 0; i < size; i++)
+    {
+        cout << "->";
+        cin >> arr[i];
+    }
 
-	for (int i = 0; i < MONTH; i++)
-	{
-		printf("¬ведите прибыль фирмы за %i мес€ц в формате 00,00\n", i + 1);
-		scanf("%f", &mass[i]);
-		for (int j = 0; j < 50; j++)
-		{
-			Sleep(1);
-			printf("-");
-		}
-		printf("\n");
-	}
+    for (i = size - 1; i != -1; i--)
+    {
+        if (i != -858993460)
+        {
+            cout << arr[i] << "\t";
+        }
+    }
 
-	system("cls");
-	printf("¬ведите номер мес€ца с которого вы хотите получить отчЄт\n");
-	scanf("%i", &firstNumberRange);
-	firstNumberRange = firstNumberRange - 1;
-	printf("¬ведите номер мес€ца по который вы хотите получить отчЄт\n");
-	scanf("%i", &secondNumberRange);
-
-	system("cls");
-	for (int i = firstNumberRange; i < secondNumberRange; i++)
-	{
-		printf("ѕрибыль за %i мес€ц \t %.2f р.\n", i + 1, mass[i]);
-		if (i == firstNumberRange)
-		{
-			max = mass[i];
-			min = mass[i];
-		}
-		if (max < mass[i])
-		{
-			max = mass[i];
-		}
-		if (min > mass[i])
-		{
-			min = mass[i];
-		}
-	}
-
-	Sleep(3000);
-
-	printf("\nћаксимальна€ прибыль \t %.2f р.\n"
-		"ћинимальна€ прибыль \t %.2f р.\n", max, min);
-
-	return 0;
 }
